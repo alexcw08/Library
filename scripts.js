@@ -60,6 +60,11 @@ bookLibrary.forEach(function (item, index) {
   rowIsRead.innerHTML = item.isRead;
   tableRow.append(rowIsRead);
 
+  let delBtn = document.createElement("button");
+  delBtn.innerHTML = "Delete";
+  delBtn.classList.add("delBtn");
+  tableRow.append(delBtn);
+
   tableContainer.append(tableRow);
   console.log(item, index);
 });
