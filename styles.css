@@ -31,9 +31,12 @@ td {
   padding-top: 1.1rem;
   align-items: center;
 }
-.btnFormGroup > form {
+.bookFormHidden {
   display: none;
 }
-.newBookBtn {
+.bookForm {
+  display: block;
+}
+#newBookBtn {
   width: fit-content;
 }

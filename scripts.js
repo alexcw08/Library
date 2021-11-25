@@ -1,4 +1,16 @@
 const tableContainer = document.getElementById("tableContainer");
+const newBookBtn = document.getElementById("newBookBtn");
+const bookForm = document.getElementsByClassName("bookFormHidden")[0];
+
+// Event listener for new book button that will show/hide the form
+newBookBtn.addEventListener("click", () => {
+  if (bookForm.classList.contains("bookFormHidden")) {
+    bookForm.classList.replace("bookFormHidden", "bookForm");
+  } else {
+    bookForm.classList.replace("bookForm", "bookFormHidden");
+  }
+});
+
 let bookLibrary = [
   { title: "Jones Mac", author: "Kenny Smith", pages: 500, isRead: "not read" },
   { title: "Mostern Mos", author: "Billy Weather", pages: 200, isRead: "read" },
@@ -37,10 +49,6 @@ function addToLibrary() {
   bookLibrary.push(newBook);
   return newBook.info();
 }
-
-//Testing
-// console.log(bookLibrary);
-
 bookLibrary.forEach(function (item, index) {
   // For each book, create a table row, create 4 cells with title, author, pages, and isRead field
   let tableRow = document.createElement("tr");
@@ -68,3 +76,6 @@ bookLibrary.forEach(function (item, index) {
   tableContainer.append(tableRow);
   console.log(item, index);
 });
+
+//Testing
+// console.log(bookLibrary);
