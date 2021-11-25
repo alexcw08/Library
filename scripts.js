@@ -40,7 +40,9 @@ function addToLibrary() {
 
 //Testing
 // console.log(bookLibrary);
+
 bookLibrary.forEach(function (item, index) {
+  // For each book, create a table row, create 4 cells with title, author, pages, and isRead field
   let tableRow = document.createElement("tr");
   let rowTitle = document.createElement("td");
   rowTitle.innerHTML = item.title;
