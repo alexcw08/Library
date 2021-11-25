@@ -25,3 +25,15 @@ td {
 .delBtn {
   width: 100%;
 }
+.btnFormGroup {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.1rem;
+  align-items: center;
+}
+.btnFormGroup > form {
+  display: none;
+}
+.newBookBtn {
+  width: fit-content;
+}
