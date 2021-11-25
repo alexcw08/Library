@@ -1,4 +1,9 @@
-let bookLibrary = [];
+const tableContainer = document.getElementById("tableContainer");
+let bookLibrary = [
+  { title: "Jones Mac", author: "Kenny Smith", pages: 500, isRead: "not read" },
+  { title: "Mostern Mos", author: "Billy Weather", pages: 200, isRead: "read" },
+  { title: "Los Mos", author: "Moser Kom", pages: 120, isRead: "read" },
+];
 
 // Book constructor
 function Book(title, author, pages, isRead = false) {
@@ -32,4 +37,27 @@ function addToLibrary() {
   bookLibrary.push(newBook);
   return newBook.info();
 }
+
 //Testing
+// console.log(bookLibrary);
+bookLibrary.forEach(function (item, index) {
+  let tableRow = document.createElement("tr");
+  let rowTitle = document.createElement("td");
+  rowTitle.innerHTML = item.title;
+  tableRow.append(rowTitle);
+
+  let rowAuthor = document.createElement("td");
+  rowAuthor.innerHTML = item.author;
+  tableRow.append(rowAuthor);
+
+  let rowPages = document.createElement("td");
+  rowPages.innerHTML = item.pages;
+  tableRow.append(rowPages);
+
+  let rowIsRead = document.createElement("td");
+  rowIsRead.innerHTML = item.isRead;
+  tableRow.append(rowIsRead);
+
+  tableContainer.append(tableRow);
+  console.log(item, index);
+});
