@@ -1,6 +1,11 @@
 const tableContainer = document.getElementById("tableContainer");
 const newBookBtn = document.getElementById("newBookBtn");
 const bookForm = document.getElementsByClassName("bookFormHidden")[0];
+const addTitle = document.getElementById("bookTitle");
+const addAuthor = document.getElementById("bookAuthor");
+const addPages = document.getElementById("bookPages");
+const addRead = document.getElementById("readBook").checked;
+const submitBtn = document.getElementById("submitBtn");
 
 // Event listener for new book button that will show/hide the form
 newBookBtn.addEventListener("click", () => {
@@ -10,7 +15,16 @@ newBookBtn.addEventListener("click", () => {
     bookForm.classList.replace("bookForm", "bookFormHidden");
   }
 });
-
+submitBtn.addEventListener("click", () => {
+  bookForm.classList.replace("bookForm", "bookFormHidden");
+  let newTitle = addTitle.value;
+  let newAuthor = addAuthor.value;
+  let newPages = addPages.value;
+  let newRead = addRead.innerHTML;
+  let anotherBook = new Book(newTitle, newAuthor, newPages);
+  console.log(anotherBook);
+  console.log(newRead);
+});
 let bookLibrary = [
   { title: "Jones Mac", author: "Kenny Smith", pages: 500, isRead: "not read" },
   { title: "Mostern Mos", author: "Billy Weather", pages: 200, isRead: "read" },

@@ -35,8 +35,36 @@ td {
   display: none;
 }
 .bookForm {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+  margin-top: 1.5rem;
+  width: 25%;
+  background-color: #dfe6e9;
+  color: black;
+}
+.bookForm > label {
+  margin: 0.4rem 1rem;
+}
+.bookForm > input {
+  margin: 0 1.1rem;
+}
+.bookForm > span {
+  margin: 0.3rem 1.1rem 0.8rem;
+}
+.newBookHeader {
+  font-size: 1.5rem;
+  padding: 1.5rem 1rem;
+  background-color: #6c5ce7;
+  color: white;
+  margin-bottom: 1.1rem;
 }
 #newBookBtn {
   width: fit-content;
+}
+#submitBtn {
+  margin: 0 1.5rem 1rem;
+  background-color: #6c5ce7;
+  color: white;
+  padding: 0.3rem 0;
 }

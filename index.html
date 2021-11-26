@@ -23,17 +23,26 @@
       <div class="btnFormGroup">
         <button id="newBookBtn">New Book</button>
         <form action="" class="bookFormHidden">
+          <div class="newBookHeader">New Book</div>
           <label for="bookName">Enter the book title:</label>
-          <input type="text" name="bookName" />
+          <input type="text" name="bookName" id="bookTitle" />
           <label for="bookAuthor">Enter the book author:</label>
-          <input type="text" name="bookAuthor" />
+          <input type="text" name="bookAuthor" id="bookAuthor" />
           <label for="bookPages">Enter the amount of pages in the book:</label>
-          <input type="text" name="bookPages" />
+          <input type="text" name="bookPages" id="bookPages" />
           <span>Have you read the book?</span>
-          <input type="radio" name="readBook" id="readBook" value="Read" />
-          <label for="readBook">Read</label>
-          <input type="radio" name="readBook" id="readBook" value="Not read" />
-          <label for="readBook">Not read</label>
+          <span>
+            <input type="radio" name="readBook" id="readBook" value="Read">Read</input>
+            
+            <input
+              type="radio"
+              name="readBook"
+              id="readBook"
+              value="Not read"
+            >Not read</input>
+            
+          </span>
+          <button type="button" id="submitBtn">Submit</button>
         </form>
       </div>
     </main>
