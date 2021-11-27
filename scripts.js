@@ -4,7 +4,7 @@ const bookForm = document.getElementsByClassName("bookFormHidden")[0];
 const addTitle = document.getElementById("bookTitle");
 const addAuthor = document.getElementById("bookAuthor");
 const addPages = document.getElementById("bookPages");
-const addRead = document.getElementById("readBook").checked;
+// const addRead = document.getElementById("readBook").checked;
 const submitBtn = document.getElementById("submitBtn");
 
 // Event listener for new book button that will show/hide the form
@@ -20,15 +20,15 @@ submitBtn.addEventListener("click", () => {
   let newTitle = addTitle.value;
   let newAuthor = addAuthor.value;
   let newPages = addPages.value;
-  let newRead = addRead.innerHTML;
+  // let newRead = addRead.innerHTML;
   let anotherBook = new Book(newTitle, newAuthor, newPages);
-  console.log(anotherBook);
-  console.log(newRead);
+  bookLibrary.push(anotherBook);
+  addToLibrary();
 });
 let bookLibrary = [
-  { title: "Jones Mac", author: "Kenny Smith", pages: 500, isRead: "not read" },
-  { title: "Mostern Mos", author: "Billy Weather", pages: 200, isRead: "read" },
-  { title: "Los Mos", author: "Moser Kom", pages: 120, isRead: "read" },
+  // { title: "Jones Mac", author: "Kenny Smith", pages: 500, isRead: "not read" },
+  // { title: "Mostern Mos", author: "Billy Weather", pages: 200, isRead: "read" },
+  // { title: "Los Mos", author: "Moser Kom", pages: 120, isRead: "read" },
 ];
 
 // Book constructor
@@ -52,44 +52,35 @@ Book.prototype.info = function () {
     "."
   );
 };
-// Adding book to library
+
 function addToLibrary() {
-  let title = window.prompt("Enter a book title");
-  let author = window.prompt("Enter the book's author");
-  let pages = window.prompt("Enter the amount of pages");
-  let isRead = window.prompt("Have you read the book or not");
+  bookLibrary.forEach((item, index) => {
+    // For each book, create a table row, create 4 cells with title, author, pages, and isRead field
+    let tableRow = document.createElement("tr");
+    let rowTitle = document.createElement("td");
+    rowTitle.innerHTML = item.title;
+    tableRow.append(rowTitle);
 
-  let newBook = new Book(title, author, pages, isRead);
-  bookLibrary.push(newBook);
-  return newBook.info();
+    let rowAuthor = document.createElement("td");
+    rowAuthor.innerHTML = item.author;
+    tableRow.append(rowAuthor);
+
+    let rowPages = document.createElement("td");
+    rowPages.innerHTML = item.pages;
+    tableRow.append(rowPages);
+
+    let rowIsRead = document.createElement("td");
+    rowIsRead.innerHTML = item.isRead;
+    tableRow.append(rowIsRead);
+
+    let delBtn = document.createElement("button");
+    delBtn.innerHTML = "Delete";
+    delBtn.classList.add("delBtn");
+    tableRow.append(delBtn);
+
+    tableContainer.append(tableRow);
+    console.log(item, index);
+  });
 }
-bookLibrary.forEach(function (item, index) {
-  // For each book, create a table row, create 4 cells with title, author, pages, and isRead field
-  let tableRow = document.createElement("tr");
-  let rowTitle = document.createElement("td");
-  rowTitle.innerHTML = item.title;
-  tableRow.append(rowTitle);
-
-  let rowAuthor = document.createElement("td");
-  rowAuthor.innerHTML = item.author;
-  tableRow.append(rowAuthor);
-
-  let rowPages = document.createElement("td");
-  rowPages.innerHTML = item.pages;
-  tableRow.append(rowPages);
-
-  let rowIsRead = document.createElement("td");
-  rowIsRead.innerHTML = item.isRead;
-  tableRow.append(rowIsRead);
-
-  let delBtn = document.createElement("button");
-  delBtn.innerHTML = "Delete";
-  delBtn.classList.add("delBtn");
-  tableRow.append(delBtn);
-
-  tableContainer.append(tableRow);
-  console.log(item, index);
-});
-
 //Testing
-// console.log(bookLibrary);
+console.log(bookLibrary);
